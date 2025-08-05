@@ -25,6 +25,9 @@ class ManuseioHttpRequest(SimpleHTTPRequestHandler):
             res_body = open("index.html", 'r').read().format_map({"PORT": PORT})
             self.wfile.write(res_body.encode())
 
+        else:
+            self.send_error(418)
+
 app = MyWebServer(ManuseioHttpRequest)
 
 if __name__ == "__main__":
